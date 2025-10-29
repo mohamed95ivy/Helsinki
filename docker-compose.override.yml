@@ -1,0 +1,33 @@
+services:
+  helsinki.api:
+    container_name: helsinki-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  helsinki.web:
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    image: node:20
+    container_name: helsinki-web
+    working_dir: /app
+    command: sh -c "npm i && npm run start -- --host 0.0.0.0 --port 4200 --proxy-config proxy.conf.json"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./Helsinki.Web:/app         
+      - /app/node_modules     
+    ports:
+      - "4200:4200"
+    depends_on:
+      - helsinki.api
+    restart: unless-stopped

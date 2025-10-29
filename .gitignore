@@ -12,6 +12,10 @@
 /package-lock.json
 /yarn.lock
 
+bin/
+obj/
+.vs/
+.vscode/
 # Environment files
 /.env
 

@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helsinki.Api", "Helsinki.Api\Helsinki.Api.csproj", "{EF40083F-AEBE-4F39-BB1C-E98FEE4175FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helsinki.Application", "Helsinki.Application\Helsinki.Application.csproj", "{3EF04431-4EB8-45F5-A71F-EEBD5D1ED968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helsinki.Domain", "Helsinki.Domain\Helsinki.Domain.csproj", "{20DDDDA4-241F-4242-902A-781E25A1D343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helsinki.Infrastructure", "Helsinki.Infrastructure\Helsinki.Infrastructure.csproj", "{A1FEF960-4DE8-4969-8268-0C0CECDB84A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helsinki.Api.UnitTests", "Helsinki.Api.UnitTests\Helsinki.Api.UnitTests.csproj", "{1C0DACEA-639B-4014-A852-E351AAAB6033}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Helsinki.Web", "Helsinki.Web\Helsinki.Web.esproj", "{33FAED5B-EA35-225D-1D1F-01F8B319275B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF40083F-AEBE-4F39-BB1C-E98FEE4175FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF40083F-AEBE-4F39-BB1C-E98FEE4175FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF40083F-AEBE-4F39-BB1C-E98FEE4175FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF40083F-AEBE-4F39-BB1C-E98FEE4175FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF04431-4EB8-45F5-A71F-EEBD5D1ED968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF04431-4EB8-45F5-A71F-EEBD5D1ED968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF04431-4EB8-45F5-A71F-EEBD5D1ED968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF04431-4EB8-45F5-A71F-EEBD5D1ED968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DDDDA4-241F-4242-902A-781E25A1D343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DDDDA4-241F-4242-902A-781E25A1D343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DDDDA4-241F-4242-902A-781E25A1D343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DDDDA4-241F-4242-902A-781E25A1D343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FEF960-4DE8-4969-8268-0C0CECDB84A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FEF960-4DE8-4969-8268-0C0CECDB84A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FEF960-4DE8-4969-8268-0C0CECDB84A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FEF960-4DE8-4969-8268-0C0CECDB84A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0DACEA-639B-4014-A852-E351AAAB6033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0DACEA-639B-4014-A852-E351AAAB6033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0DACEA-639B-4014-A852-E351AAAB6033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0DACEA-639B-4014-A852-E351AAAB6033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FAED5B-EA35-225D-1D1F-01F8B319275B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C0DACEA-639B-4014-A852-E351AAAB6033} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7794D748-E4BA-46BB-9E2A-91322FBAE211}
+	EndGlobalSection
+EndGlobal

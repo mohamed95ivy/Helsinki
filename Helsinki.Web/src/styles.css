@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+@import '@angular/material/prebuilt-themes/purple-green.css';
+mat-slide-toggle {
+  color: white;
+}
+/* Optional global base */
+html, body { height: 100%; }
+body { background-color: #f9fafb; color: #111827; }
+/* Dark mode toggled by adding .dark to <html> */
+:root.dark body { background-color: #0f172a; color: #f8fafc; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

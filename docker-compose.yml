@@ -1,0 +1,7 @@
+services:
+  helsinki.api:
+    image: ${DOCKER_REGISTRY-}helsinkiapi
+    build:
+      context: .
+      dockerfile: Helsinki.Api/Dockerfile  
+

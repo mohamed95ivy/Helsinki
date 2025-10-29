@@ -1,0 +1,113 @@
+<div class="p-8 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-100 dark:border-gray-800 rounded-3xl shadow-sm">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-8">
+    <div class="flex items-center gap-4">
+      <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+        <mat-icon class="text-white text-xl">currency_exchange</mat-icon>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Currency Converter</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Real-time exchange rates</p>
+      </div>
+    </div>
+
+    <button mat-icon-button type="button" (click)="swap()" 
+            class="w-10 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
+            matTooltip="Swap currencies" aria-label="Swap currencies">
+      <mat-icon class="text-gray-600 dark:text-gray-400">swap_horiz</mat-icon>
+    </button>
+  </div>
+
+  <!-- Form -->
+  <form class="space-y-6" (ngSubmit)="convert()" [formGroup]="form">
+    <!-- Amount Input -->
+    <div class="space-y-2">
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Amount</label>
+      <div class="relative">
+        <mat-icon class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">attach_money</mat-icon>
+        <input matInput type="number" formControlName="amount" 
+               class="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl text-lg font-medium placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+               placeholder="Enter amount" min="0" step="0.01" />
+      </div>
+      <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 px-2">
+        <span *ngIf="form.get('amount')?.invalid && (form.get('amount')?.dirty || form.get('amount')?.touched)" class="text-red-500">
+          Please enter a valid amount
+        </span>
+        <span>Up to 2 decimal places</span>
+      </div>
+    </div>
+
+    <!-- Currency Selection -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-gray-700 dark:text-gray-300">From</label>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-select formControlName="from" class="py-3" panelClass="tw-select-panel">
+            <mat-option *ngFor="let c of currencies()" [value]="c" class="flex items-center gap-2 py-2">
+              <span class="font-medium">{{ c }}</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-gray-700 dark:text-gray-300">To</label>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-select formControlName="to" class="py-3" panelClass="tw-select-panel">
+            <mat-option *ngFor="let c of currencies()" [value]="c" class="flex items-center gap-2 py-2">
+              <span class="font-medium">{{ c }}</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Convert Button -->
+    <button mat-flat-button color="primary" type="submit"
+            class="w-full py-4 rounded-2xl text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:transform-none disabled:hover:shadow-lg"
+            [disabled]="loading() || form.invalid">
+      <span *ngIf="!loading()">Convert Currency</span>
+      <span *ngIf="loading()" class="flex items-center gap-2">
+        <mat-spinner diameter="20"></mat-spinner>
+        Converting...
+      </span>
+    </button>
+  </form>
+
+  <!-- Loading State -->
+  <div *ngIf="loading()" class="mt-6 space-y-3">
+    <div class="h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
+    <div class="text-center text-sm text-gray-600 dark:text-gray-400">Fetching latest exchange rates...</div>
+  </div>
+
+  <!-- Result -->
+  <div *ngIf="result() as r" class="mt-6 animate-in fade-in duration-300" role="region" aria-live="polite">
+    <div class="p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-emerald-900/20 dark:to-green-900/20 border border-green-200 dark:border-emerald-800/50">
+      <div class="flex items-center gap-3 text-green-700 dark:text-emerald-300 mb-4">
+        <div class="h-8 w-8 rounded-full bg-green-500 dark:bg-emerald-600 flex items-center justify-center">
+          <mat-icon class="text-white text-sm">check</mat-icon>
+        </div>
+        <span class="font-semibold">Conversion Complete</span>
+      </div>
+
+      <!-- Conversion Result -->
+      <div class="text-center space-y-2">
+        <div class="text-4xl font-bold text-gray-900 dark:text-white">
+          {{ r.amount | number:'1.2-2' }}
+        </div>
+        <div class="text-lg font-medium text-gray-600 dark:text-gray-300">{{ r.to }}</div>
+        
+        <!-- Exchange Rate -->
+        <div class="pt-4 border-t border-green-200 dark:border-emerald-800/50 mt-4">
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            1 {{ form?.value?.from }} = {{ r.rate | number:'1.2-6' }} {{ r.to }}
+          </div>
+          <div class="text-xs text-gray-500 dark:text-gray-500 mt-1">
+            <!-- Last updated: {{ r. | date:'medium' }} -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

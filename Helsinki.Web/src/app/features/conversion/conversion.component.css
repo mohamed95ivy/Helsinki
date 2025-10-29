@@ -1,0 +1,31 @@
+/* Material select overlay surface */
+.tw-select-panel {
+  background-color: #ffffff !important;       /* light bg */
+  color: #111827 !important;                  /* gray-900 */
+  border: 1px solid #e5e7eb;                  /* gray-200 */
+  border-radius: 0.75rem;                     /* rounded-xl */
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+}
+
+/* Dark mode */
+.dark .tw-select-panel {
+  background-color: #111827 !important;       /* gray-900 */
+  color: #e5e7eb !important;                  /* gray-200 */
+  border-color: #374151;                      /* gray-700 */
+  box-shadow: 0 30px 50px rgba(0,0,0,.45);
+}
+
+/* Option states */
+.tw-select-panel .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: rgba(17,24,39,.06);             /* light hover */
+}
+.dark .tw-select-panel .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: rgba(255,255,255,.06);          /* dark hover */
+}
+.tw-select-panel .mat-mdc-option.mdc-list-item--selected {
+  background: rgba(59,130,246,.14);           /* blue-500/14 */
+}
+.dark .tw-select-panel .mat-mdc-option.mdc-list-item--selected {
+  background: rgba(59,130,246,.24);
+}
+.tw-select-panel .mdc-list-item__primary-text { color: inherit; }
