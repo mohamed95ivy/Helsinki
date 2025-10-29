@@ -45,3 +45,5 @@ Submission Checklist
 - Automatic migrations applied
 - Unit tests included
 - README present
+
+OpenApi Specification under Helsinki.Api\openapi.json. Import to Postman as Collection.
